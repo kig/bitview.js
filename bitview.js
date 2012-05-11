@@ -10,13 +10,11 @@ BitView.prototype.getBit = function(idx) {
 };
 
 BitView.prototype.setBit = function(idx, val) {
-  var bidx = idx >> 3;
-  var v = this.u8[bidx];
   var off = idx & 0x7;
   if (val) {
-    this.u8[bidx] = v | (0x80 >> off);
+    this.u8[idx >> 3] |= (0x80 >> off);
   } else {
-    this.u8[bidx] = v & ~(0x80 >> off);
+    this.u8[idx >> 3] &= ~(0x80 >> off);
   }
 };
 
