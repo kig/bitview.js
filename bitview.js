@@ -6,7 +6,7 @@ BitView = function(buf) {
 BitView.prototype.getBit = function(idx) {
   var v = this.u8[idx >> 3];
   var off = idx & 0x7;
-  return (v & (0x80 >> off)) >> (7-off);
+  return (v >> (7-off)) & 1;
 };
 
 BitView.prototype.setBit = function(idx, val) {

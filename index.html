@@ -31,6 +31,14 @@ bv.setBit(6, 0);
 console.log(u8[0] == 5);
 <span id="result1"></span>
 
+u8[0] = 0x8b; // 10001011
+var arr = [];
+for (var i=0; i<8; i++) {
+  arr.push(bv.getBit(i));
+}
+console.log(arr.join(''));
+<span id="result3"></span>
+
 var success = true;
 for (var i=0; i<18; i++) {
   for (var j=-32; j<32; j++) {
@@ -60,6 +68,14 @@ bv.setBit(6, 0);
 
 console.log(u8[0] == 5);
 document.getElementById('result1').innerHTML = u8[0] == 5;
+
+u8[0] = 0x8b;
+var arr = [];
+for (var i=0; i<8; i++) {
+  arr.push(bv.getBit(i));
+}
+console.log(arr.join(''));
+document.getElementById('result3').innerHTML = arr.join('');
 
 var success = true;
 for (var i=0; i<18; i++) {
