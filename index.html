@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>bitview.js</title>
+<script src="bitview.js"></script>
+</head>
+<body>
+<pre>
+<a href="http://github.com/kig/bitview.js">bitview.js</a>
+----------
+Manipulate bits in ArrayBuffers.
+Works like a DataView but indexes in bits.
+Also encodes and decodes 6-bit ints and 12-bit ints.
+
+var u8 = Uint8Array(3);
+var bv = new BitView(u8.buffer);
+
+bv.setBit(5, 1);
+bv.setBit(6, 1);
+bv.setBit(7, 1);
+
+console.log(u8[0] == 7);
+<span id="result0"></span>
+
+bv.setBit(6, 0);
+
+console.log(u8[0] == 5);
+<span id="result1"></span>
+
+var success = true;
+for (var i=0; i<18; i++) {
+  for (var j=-32; j<32; j++) {
+    bv.setInt6(i, j);
+    if (bv.getInt6(i) != j) {
+      success = false;
+      break;
+    }
+  }
+}
+console.log('success?', success);
+<span id="result2"></span>
+</pre>
+
+<script>
+var u8 = Uint8Array(3);
+var bv = new BitView(u8.buffer);
+
+bv.setBit(5, 1);
+bv.setBit(6, 1);
+bv.setBit(7, 1);
+
+console.log(u8[0] == 7);
+document.body.getElementById('result0').innerHTML = u8[0] == 7;
+
+bv.setBit(6, 0);
+
+console.log(u8[0] == 5);
+document.body.getElementById('result1').innerHTML = u8[0] == 5;
+
+var success = true;
+for (var i=0; i<18; i++) {
+  for (var j=-32; j<32; j++) {
+    bv.setInt6(i, j);
+    if (bv.getInt6(i) != j) {
+      success = false;
+      break;
+    }
+  }
+}
+document.body.getElementById('result2').innerHTML = 'success? ' + success;
+</script>
+</body>
+</html>
