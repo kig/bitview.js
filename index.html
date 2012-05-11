@@ -11,7 +11,7 @@ Manipulate bits in ArrayBuffers.
 Works like a DataView but indexes in bits.
 Also encodes and decodes 6-bit ints and 12-bit ints.
 
-var u8 = Uint8Array(3);
+var u8 = new Uint8Array(3);
 var bv = new BitView(u8.buffer);
 
 bv.setBit(5, 1);
@@ -41,7 +41,7 @@ console.log('success?', success);
 </pre>
 
 <script>
-var u8 = Uint8Array(3);
+var u8 = new Uint8Array(3);
 var bv = new BitView(u8.buffer);
 
 bv.setBit(5, 1);
