@@ -49,12 +49,12 @@ bv.setBit(6, 1);
 bv.setBit(7, 1);
 
 console.log(u8[0] == 7);
-document.body.getElementById('result0').innerHTML = u8[0] == 7;
+document.getElementById('result0').innerHTML = u8[0] == 7;
 
 bv.setBit(6, 0);
 
 console.log(u8[0] == 5);
-document.body.getElementById('result1').innerHTML = u8[0] == 5;
+document.getElementById('result1').innerHTML = u8[0] == 5;
 
 var success = true;
 for (var i=0; i<18; i++) {
@@ -66,7 +66,7 @@ for (var i=0; i<18; i++) {
     }
   }
 }
-document.body.getElementById('result2').innerHTML = 'success? ' + success;
+document.getElementById('result2').innerHTML = 'success? ' + success;
 </script>
 </body>
 </html>
